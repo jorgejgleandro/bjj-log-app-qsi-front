@@ -1,0 +1,2 @@
+docker build -t bjj-gui .
+docker run -p 9000:80 bjj-gui

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>BJJ Training Log</title>
+</head>
+
+<body>
+    <!-- Cabeçalho de informações do sistema -->
+    <header>
+        <div class="title">
+            <h2>Técnicas Aprendidas de Brazilian Jiu-Jitsu</h2>
+        </div>
+        <div class="banner"></div>
+    </header>
+
+   <div id="loader"></div>
+
+    <!-- Abas para cadastro de entidades Tecnica, Aluno e Parametros de Saúde -->
+    <div class="tab">
+        <button class="tablinks active" id="newTecnica_tab">Adicione Nova
+            Técnica</button>
+        <button class="tablinks" id="newAluno_tab">Adicione Novo Aluno</button>
+        <button class="tablinks" id="newSaudeParametros_tab">Adicione Parametros de Saude de Aluno</button>
+    </div>
+
+    <div class="tabcontent" id="newTecnica_content">
+        <!-- Opções para adicionar uma nova Tecnica -->
+        <section class="newItem">
+            <input type="text" id="newTecnica" placeholder="Adicionar nova tecnica:">
+            <input type="text" id="newDescricao" placeholder="Descricao gerada por IA">
+            <input type="radio" id="iniciante" name="newNivel" value="Iniciante">
+            <label for="iniciante">Iniciante</label>
+            <input type="radio" id="intermediario" name="newNivel" value="Intermediário">
+            <label for="intermediario">Intermediário</label>
+            <input type="radio" id="avancado" name="newNivel" value="Avançado">
+            <label for="avancado">Avançado</label>
+            <input type="text" id="newVideo" placeholder="Video obtido do Youtube">
+            <span onclick="newItem('tecnica', 'myTableTecnica', 'newTecnica', 'newDescricao', 'newNivel', 'newVideo')"
+                class="addBtn">Adicionar</span>
+        </section>
+
+        <!-- Tabela com tecnicas registradas -->
+        <p>Lista de técnicas adicionadas.</p>
+        <section class="items">
+            <table id="myTableTecnica">
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Nível</th>
+                    <th>Vídeo</th>
+                    <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px">
+                    </th>
+                </tr>
+            </table>
+        </section>
+
+    </div>
+
+    <div class="tabcontent" id="newAluno_content">
+         <!-- Opções para adicionar um novo Aluno -->
+        <section class="newItem">
+            <input type="text" id="newAluno" placeholder="Adicionar nome do aluno:">
+            <input type="text" id="newDataNascimento" placeholder="Data de Nascimento:">
+            <input type="text" id="newDataInicio" placeholder="Data de Inicio:">
+            <select name="faixas" id="newGraduacao">
+                <option class="invalid" value="" disabled selected>Faixa</option>
+                <option value="Branca">Branca</option>
+                <option value="Azul">Azul</option>
+                <option value="Roxa">Roxa</option>
+                <option value="Marrom">Marrom</option>
+                <option value="Preta">Preta</option>
+            </select>
+            <input type="text" id="newEndereco" placeholder="Digite seu CEP sem traço:">
+            <span
+                onclick="newItem('aluno', 'myTableAluno', 'newAluno', 'newDataNascimento', 'newDataInicio', 'newGraduacao', 'newEndereco')"
+                class="addBtn">Adicionar</span>
+        </section>
+
+        <!-- Tabela com alunos cadastrados -->
+        <p>Lista de Alunos cadastrados.</p>
+        <section class="items">
+            <table id="myTableAluno">
+                <tr>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>Data de Início</th>
+                    <th>Graduação</th>
+                    <th>Endereço</th>
+                    <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px">
+                    </th>
+                </tr>
+            </table>
+        </section>
+
+    </div>
+
+    <div class="tabcontent" id="newSaudeParametros_content">
+        <!-- Opções para adicionar Parametros de Saude -->
+       <section class="newItem">
+           <input type="text" id="alunoSaudeParametros" placeholder="Nome do aluno:">
+           <input type="text" id="newAge" placeholder="Idade:">
+           <input type="text" id="newSex" placeholder="Sexo:">
+           <select name="CP_types" id="newCP">
+            <option class="invalid" value="" disabled selected>CP Types</option>
+            <option value="1">1: angina típica</option>
+            <option value="2">2: angina atípica</option>
+            <option value="3">3: sem dor por angina</option>
+            <option value="4">4: assintomático</option>
+           </select>
+           <input type="text" id="newTRTBPS" placeholder="Pressão Sanguinea em repouso (mm Hg):">
+           <input type="text" id="newCHOL" placeholder="Colesterol:">
+           <select name="FBS_bool" id="newFBS">
+            <option class="invalid" value="" disabled selected>Açúcar no Sangue em Jejum maior que 120mg/dl</option>
+            <option value="0">0: NÃO</option>
+            <option value="1">1: SIM</option>
+           </select>
+           <select name="RESTCG_options" id="newRESTCG">
+            <option class="invalid" value="" disabled selected>Resultados de eletrocardiograma em repouso</option>
+            <option value="0">0: NORMAL</option>
+            <option value="1">1: Presença de anormalidade na onda ST-T</option>
+            <option value="2">2: Provável hipertrofia do ventrículo esquerdo pelo critério de Estes</option>
+           </select>
+           <input type="text" id="newTHALACHH" placeholder="Máxima frequencia cardíaca atingida:">
+           <select name="EXNG_bool" id="newEXNG"></select>
+            <option class="invalid" value="" disabled selected>Angina induzida por exercício</option>
+            <option value="0">0: NÃO</option>
+            <option value="1">1: SIM</option>
+           </select>
+           <input type="text" id="newOLDPEAK" placeholder="Depressão de ST induzida por exercício relativa ao repouso:">
+           <select name="SLP_options" id="newSLP"></select>
+           <option class="invalid" value="" disabled selected>Inclinação do Pico de exercício do segmento ST:</option>
+           <option value="1">1: SUBINDO</option>
+           <option value="2">2: PLATÖ</option>
+           <option value="3">3: DESCENDO</option>          
+          </select>
+          <select name="CAA_options" id="newCAA"></select>
+           <option class="invalid" value="" disabled selected>"Número de vasos principais:">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <select name="THALL_options" id="newTHALL"></select>
+          <option class="invalid" value="" disabled selected>"Talassemia:">
+           <option value="3">3: NORMAL</option>
+           <option value="6">6: DEFEITO CORRIGIDO</option>
+           <option value="7">7: DEFEITO REVERSÍVEL</option>
+         </select>
+         <input type="text" id="newOUTPUT" placeholder="0: baixa probabilidade de ataque cardíaco - 1: alta probabilidade de ataque cardíaco">
+
+           <span
+               onclick="newItem('alunoSaudeParametros', 'myTableSaudeParametros', 'newAge', 'newSex', 'newCP', 'newCHOL', 'newFBS', 'newRESTCG', 'newTHALACHH', 'newOLDPEAK', 'newSLP', 'newCAA', 'newTHALL', 'newOUTPUT')"
+               class="addBtn">Adicionar</span>
+       </section>
+
+       <!-- Tabela com alunos cadastrados -->
+       <p>Lista de Alunos cadastrados.</p>
+       <section class="items">
+           <table id="myTableAlunoSaudeParametros">
+               <tr>
+                   <th>Nome</th>
+                   <th>Idade</th>
+                   <th>Sexo</th>
+                   <th>CP</th>
+                   <th>CHOL</th>
+                   <th>RESTCG</th>
+                   <th>THALLACHH</th>
+                   <th>OldPeak</th>
+                   <th>SLP</th>
+                   <th>CAA</th>
+                   <th>THALL</th>
+                   <th>OUTPUT</th>
+                   <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px">
+                   </th>
+               </tr>
+           </table>
+       </section>
+   </div>
+    <script src="./scripts.js"></script>
+</body>
+</html>
