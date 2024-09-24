@@ -131,6 +131,8 @@ getList('tecnicas', 'myTableTecnica');
 
 getList('alunos', 'myTableAlunos');
 
+getList('saude_parametros_alunos', 'myTableAlunosSaudeParametros');
+
 
 /*
   --------------------------------------------------------------------------------------
@@ -211,7 +213,7 @@ const removeElement = (route_name) => {
 const deleteItem = (route_name, item) => {
   console.log(item)
 
-  let url = 'http://127.0.0.1:5000/' + route_name + '?nome=' + item;
+  let url = 'http://127.0.0.1:5000/' + route_name + '?aluno_nome=' + item;
   fetch(url, {
     method: 'delete'
   })
@@ -295,11 +297,11 @@ const getItemObj = async (route_name, ...args) => {
       'endereco': inputEndereco.value
     });
 
-  } else if (route_name === 'saude_parametros') {
+  } else if (route_name === 'saude_parametros_aluno') {
      // TODO: popular output com o resultado do modelo
 
     return ({
-      'nome': document.getElementById(args[0]).value,
+      'aluno_nome': document.getElementById(args[0]).value,
       'age': document.getElementById(args[1]).value,
       'sex': document.getElementById(args[2]).value,
       'cp': document.getElementById(args[3]).value,
@@ -351,6 +353,22 @@ const clearInputFields = (myTable) => {
     document.getElementById("newDataInicio").value = "";
     document.getElementById("newGraduacao").value = "";
     document.getElementById("newEndereco").value = "";
+  } else if (myTable === 'myTableAlunosSaudeParametros')  {
+    document.getElementById("newAlunoSaudeParametrosNome").value = "";
+    document.getElementById("newAge").value = "";
+    document.getElementById("newSex").value = "";
+    document.getElementById("newCP").value = "";
+    document.getElementById("newTRTBPS").value = "";
+    document.getElementById("newCHOL").value = "";
+    document.getElementById("newFBS").value = "";
+    document.getElementById("newRESTCG").value = "";
+    document.getElementById("newTHALACHH").value = "";
+    document.getElementById("newEXNG").value = "";
+    document.getElementById("newOLDPEAK").value = "";
+    document.getElementById("newSLP").value = "";
+    document.getElementById("newCAA").value = "";
+    document.getElementById("newTHALL").value = "";
+    document.getElementById("newOUTPUT").value = "";
   } else {
     console.log('Unknown item type');
   }
@@ -369,7 +387,9 @@ const insertList = (item_obj, myTable, route_name) => {
   let table = document.getElementById(myTable);
   let row = table.insertRow();
 
-  for (let i = 0; i < item.length; i++) {
+  item_length = route_name !== 'saude_parametros_aluno' ? item.length : item.length + 1;
+
+  for (let i = 0; i < item_length; i++) {
     let cel = row.insertCell(i);
 
     // Se entrada for relativa a video, então aplicar hiperlink
@@ -425,6 +445,9 @@ const newTecnicaContent = document.getElementById("newTecnica_content");
 const newAlunoTab = document.getElementById("newAluno_tab");
 const newAlunoContent = document.getElementById("newAluno_content");
 
+const newSaudeParametrosTab = document.getElementById("newSaudeParametros_tab");
+const newSaudeParametrosContent = document.getElementById("newSaudeParametros_content");
+
 
 newTecnicaTab.addEventListener("click", () => {
   setTab(newTecnicaContent, newTecnicaTab);
@@ -434,6 +457,10 @@ newAlunoTab.addEventListener("click", () => {
   setTab(newAlunoContent, newAlunoTab);
 });
 
-newTecnicaTab.click();
+newSaudeParametrosTab.addEventListener("click", () => {
+  setTab(newSaudeParametrosContent, newSaudeParametrosTab);
+});
+
+newSaudeParametrosTab.click();
 
 

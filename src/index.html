@@ -103,76 +103,97 @@
 
     <div class="tabcontent" id="newSaudeParametros_content">
         <!-- Opções para adicionar Parametros de Saude -->
-       <section class="newItem">
-           <input type="text" id="alunoSaudeParametros" placeholder="Nome do aluno:">
+       <section class="newItem2">
+           <input type="text" id="newAlunoSaudeParametrosNome" placeholder="Nome:">
+
            <input type="text" id="newAge" placeholder="Idade:">
-           <input type="text" id="newSex" placeholder="Sexo:">
+
+           <select name="Sex_options" id="newSex">
+            <option class="invalid" value="" disabled selected>SEX:</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+           </select>
+
            <select name="CP_types" id="newCP">
-            <option class="invalid" value="" disabled selected>CP Types</option>
-            <option value="1">1: angina típica</option>
-            <option value="2">2: angina atípica</option>
-            <option value="3">3: sem dor por angina</option>
-            <option value="4">4: assintomático</option>
+            <option class="invalid" value="" disabled selected>CP:</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="0">0</option>
            </select>
-           <input type="text" id="newTRTBPS" placeholder="Pressão Sanguinea em repouso (mm Hg):">
-           <input type="text" id="newCHOL" placeholder="Colesterol:">
+
+           <input type="text" id="newTRTBPS" placeholder="TRTBPS:">
+
+           <input type="text" id="newCHOL" placeholder="CHOL:">
+
            <select name="FBS_bool" id="newFBS">
-            <option class="invalid" value="" disabled selected>Açúcar no Sangue em Jejum maior que 120mg/dl</option>
-            <option value="0">0: NÃO</option>
-            <option value="1">1: SIM</option>
+            <option class="invalid" value="" disabled selected>FBS:</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
            </select>
+
            <select name="RESTCG_options" id="newRESTCG">
-            <option class="invalid" value="" disabled selected>Resultados de eletrocardiograma em repouso</option>
-            <option value="0">0: NORMAL</option>
-            <option value="1">1: Presença de anormalidade na onda ST-T</option>
-            <option value="2">2: Provável hipertrofia do ventrículo esquerdo pelo critério de Estes</option>
+            <option class="invalid" value="" disabled selected>RESTCG:</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
            </select>
-           <input type="text" id="newTHALACHH" placeholder="Máxima frequencia cardíaca atingida:">
-           <select name="EXNG_bool" id="newEXNG"></select>
-            <option class="invalid" value="" disabled selected>Angina induzida por exercício</option>
-            <option value="0">0: NÃO</option>
-            <option value="1">1: SIM</option>
+
+           <input type="text" id="newTHALACHH" placeholder="THALACHH:">
+
+           <select name="EXNG_bool" id="newEXNG">
+            <option class="invalid" value="" disabled selected>EXNG:</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
            </select>
-           <input type="text" id="newOLDPEAK" placeholder="Depressão de ST induzida por exercício relativa ao repouso:">
-           <select name="SLP_options" id="newSLP"></select>
-           <option class="invalid" value="" disabled selected>Inclinação do Pico de exercício do segmento ST:</option>
-           <option value="1">1: SUBINDO</option>
-           <option value="2">2: PLATÖ</option>
-           <option value="3">3: DESCENDO</option>          
+
+           <input type="text" id="newOLDPEAK" placeholder="OldPeak:">
+
+           <select name="SLP_options" id="newSLP">
+           <option class="invalid" value="" disabled selected>SLP:</option>
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
           </select>
-          <select name="CAA_options" id="newCAA"></select>
-           <option class="invalid" value="" disabled selected>"Número de vasos principais:">
+
+          <select name="CAA_options" id="newCAA">
+           <option class="invalid" value="" disabled selected>CAA:</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
           </select>
-          <select name="THALL_options" id="newTHALL"></select>
-          <option class="invalid" value="" disabled selected>"Talassemia:">
-           <option value="3">3: NORMAL</option>
-           <option value="6">6: DEFEITO CORRIGIDO</option>
-           <option value="7">7: DEFEITO REVERSÍVEL</option>
+
+          <select name="THALL_options" id="newTHALL">
+          <option class="invalid" value="" disabled selected>THALL:</option>
+           <option value="3">3</option>
+           <option value="6">6</option>
+           <option value="7">7</option>
          </select>
-         <input type="text" id="newOUTPUT" placeholder="0: baixa probabilidade de ataque cardíaco - 1: alta probabilidade de ataque cardíaco">
+
+         <input type="text" id="newOUTPUT" placeholder="Output">
 
            <span
-               onclick="newItem('alunoSaudeParametros', 'myTableSaudeParametros', 'newAge', 'newSex', 'newCP', 'newCHOL', 'newFBS', 'newRESTCG', 'newTHALACHH', 'newOLDPEAK', 'newSLP', 'newCAA', 'newTHALL', 'newOUTPUT')"
+               onclick="newItem('saude_parametros_aluno', 'myTableAlunosSaudeParametros', 'newAlunoSaudeParametrosNome', 'newAge', 'newSex', 'newCP', 'newTRTBPS','newCHOL', 'newFBS', 'newRESTCG', 'newTHALACHH', 'newEXNG', 'newOLDPEAK', 'newSLP', 'newCAA', 'newTHALL')"
                class="addBtn">Adicionar</span>
        </section>
 
-       <!-- Tabela com alunos cadastrados -->
-       <p>Lista de Alunos cadastrados.</p>
+       <!-- Tabela com parâmetros de saúde cadastrados -->
+       <p>Lista de Parâmetros de Saúde Cadastrados</p>
        <section class="items">
-           <table id="myTableAlunoSaudeParametros">
+           <table class="table2" id="myTableAlunosSaudeParametros">
                <tr>
                    <th>Nome</th>
                    <th>Idade</th>
                    <th>Sexo</th>
                    <th>CP</th>
+                   <th>TRTBPS</th>
                    <th>CHOL</th>
+                   <th>FBS</th>
                    <th>RESTCG</th>
                    <th>THALLACHH</th>
-                   <th>OldPeak</th>
+                   <th>EXNG</th>
+                   <th>OLDPEAK</th>
                    <th>SLP</th>
                    <th>CAA</th>
                    <th>THALL</th>
