@@ -154,18 +154,31 @@ const postItem = async (item_obj, route_name, myTable) => {
 
   let url = 'http://127.0.0.1:5000/' + route_name;
   fetch(url, {
-    method: 'post',
+    method: 'POST',
     body: formData
   })
-    .then((response) => {
+  .then((response) => {
       if (response.status === 200) {
-        insertList(item_obj, myTable, route_name);
-        alert(route_name + " adicionado(a)!");
+          if (route_name === 'saude_parametros_aluno') {
+              return response.json();
+          }
+      } else {
+          throw new Error('Response não ok');
       }
-    })
-    .catch((error) => {
+  })
+  .then((data_json) => {
+      if (typeof data_json === 'object' && data_json !== null) {
+          item_obj["output"] = data_json.output;
+          document.getElementById('newOUTPUT').textContent = data_json.output;
+      }
+      console.log(`data_json ${JSON.stringify(data_json)}`);
+      console.log(`item_obj ${JSON.stringify(item_obj)}`);
+      insertList(item_obj, myTable, route_name);
+      alert(route_name + " adicionado(a)!");
+  })
+  .catch((error) => {
       console.error('Error:', error);
-    });
+  });
 }
 
 
@@ -387,9 +400,7 @@ const insertList = (item_obj, myTable, route_name) => {
   let table = document.getElementById(myTable);
   let row = table.insertRow();
 
-  item_length = route_name !== 'saude_parametros_aluno' ? item.length : item.length + 1;
-
-  for (let i = 0; i < item_length; i++) {
+  for (let i = 0; i < item.length; i++) {
     let cel = row.insertCell(i);
 
     // Se entrada for relativa a video, então aplicar hiperlink
@@ -462,5 +473,3 @@ newSaudeParametrosTab.addEventListener("click", () => {
 });
 
 newSaudeParametrosTab.click();
-
-
