@@ -311,7 +311,6 @@ const getItemObj = async (route_name, ...args) => {
     });
 
   } else if (route_name === 'saude_parametros_aluno') {
-     // TODO: popular output com o resultado do modelo
 
     return ({
       'aluno_nome': document.getElementById(args[0]).value,
