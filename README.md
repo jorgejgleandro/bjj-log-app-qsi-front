@@ -1,6 +1,6 @@
 # *Brazilian Jiu-Jitsu Training Log - Frontend*
 
-Esta é uma aplicação web que permite o acompanhamento objetivo do progresso do aprendizado de técnicas de Jiu-Jitsu, um pequeno projeto que constitui o MVP a ser apresentado à disciplina **Arquitetura de Software** do curso de **Pós-graduação em Engenharia de Software - PUC-Rio**
+Esta é uma aplicação web que permite o acompanhamento objetivo do progresso do aprendizado de técnicas de Jiu-Jitsu, um pequeno projeto que constitui o MVP a ser apresentado à disciplina **Qualidade de Software, Segurança e Sistemas Inteligentes** do curso de **Pós-graduação em Engenharia de Software - PUC-Rio**
 
 ## Descrição
 
@@ -19,7 +19,7 @@ Veja o [vídeo de apresentação](https://youtu.be/JNw1kgE5TsQ) no Youtube.
 
 ---
 
-<img src="mvp-3-diagram.png" alt="Arquitetura do BJJ Training Log" title="Brazilian Jiu-Jitsu Training Image" width="600" class="center"/>
+<img src="mvp-4-diagram.png" alt="Arquitetura do BJJ Training Log" title="Brazilian Jiu-Jitsu Training Image" width="600" style="display:block; margin:auto"/>
 
 <center> Figura: Arquitetura do BJJ Training Log </center>
 
@@ -28,7 +28,7 @@ Veja o [vídeo de apresentação](https://youtu.be/JNw1kgE5TsQ) no Youtube.
 
 Faça uma cópia desse repositório para sua máquina local, preferencialmente com o comando abaixo.
 ```
-git clone git@github.com:jorgejgleandro/bjj-training-log-arq-soft-frontend.git
+git clone git@github.com:jorgejgleandro/bjj-log-app-qsi-front.git
 ```
 
 Acesse a **branch** *main* do repositório:
@@ -40,7 +40,7 @@ git checkout main
 ---
 ## Instalação e Execução
 
-Vale salientar que, para executar a aplicação com esse componente  *frontend*, é necessário que o respectivo componente *backend* esteja em execução.
+Vale salientar que, para executar a aplicação com esse componente  *frontend*, é necessário que o respectivo componente [*backend*](https://github.com/jorgejgleandro/bjj-log-app-qsi-api) esteja em execução.
 
 ---
 ### Modo desenvolvimento: Execução
@@ -68,10 +68,26 @@ $ docker run -d -p 9000:80 nome_da_sua_imagem
 
 Uma vez executando, para acessar o front-end, basta abrir o [http://localhost:9000/#/](http://localhost:9000/#/) no navegador.
 
-Para obter a implementação da **API**, dirija-se ao repositório do componente [*backend*](https://github.com/jorgejgleandro/bjj-log-app-arq-soft-api) e siga aquelas instruções.
+Para obter a implementação da **API**, dirija-se ao repositório do componente [*backend*](https://github.com/jorgejgleandro/bjj-log-app-qsi-api) e siga aquelas instruções.
+
+## Principais Funcionalidades
+
+### Doença Cardíaca - Predição com modelo de Aprendizagem de Máquina
+
+Esta aplicação é equipada com um modelo treinado de Aprendizagem de Máquina para predição de alto risco de ataque cardíaco em um praticante, durante uma sessão de treinamento.
+
+Para tanto, o usuário deve fornecer resultados de exames com os 13 parâmetros solicitados na interface. No ato de submissão dos parâmetros de saúde cardíaca de um aluno, o *frontend* realiza uma requisição ao *backend*, em que está embarcado o objeto que representa o modelo treinado de Aprendizagem de Máquina. Então o *backend* persiste o valor da predição no campo correspondente no banco de dados e devolve este valor como resposta à requisição, que é imediatamente exibido na listagem atualizada com esse registro.
+
+---
+
+<img src="lista-parametros-cadastrados-saida.png" align=center alt="Lista de Parâmetros de Saúde e Predição de Risco de Ataque Cardíaco (1: alto risco, 0: baixo risco)" title="Brazilian Jiu-Jitsu Training - Parametros de Saude Image" width="600" style="display:block; margin:auto"/>
+
+<center> Figura: Lista de Parâmetros de Saúde com Predição de Risco de Ataque Cardíaco por modelo de Aprendizagem de Máquina (1:alto risco, 0: baixo risco)</center>
+
+---
 
 
-## APIs Externas Públicas
+### APIs Externas Públicas
 
 Três APIs externas foram utilizadas como componentes nesta aplicação, a saber:
 
