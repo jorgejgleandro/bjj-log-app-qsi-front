@@ -253,19 +253,19 @@ table {
     width: 98%;
 }
 
-tr:nth-child(odd) {
+.table tr:nth-child(odd) {
     background-color: #eee;
 }
 
-th:nth-child(1) {
+.table th:nth-child(1) {
     width: 30%;
 }
 
-th:nth-child(2) {
+.table th:nth-child(2) {
     width: 40%;
 }
 
-tr:hover {
+.table tr:hover {
     background: rgb(200, 199, 199);
 }
 
@@ -292,11 +292,17 @@ tr:hover {
     background-color: #eee;
 }
 
+.table2 th:first-child {
+    width: 30%;
+}
+
+.table2 th:not(:first-child) {
+    width: calc(70% / (100% - 30%));
+}
+
 .table2 tr:hover {
     background: rgb(200, 199, 199);
 }
-
-
 
 p {
     font-size: 22px;
