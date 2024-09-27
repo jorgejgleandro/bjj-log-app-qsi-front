@@ -166,24 +166,41 @@ input[name="newNivel"] {
     font-size: 16px;
 }
 
-#newAge,
+
 #newSex,
 #newCP,
-#newTRTBS,
 #newCHOL,
 #newFBS,
-#newRESTCG,
-#newTHALACHH,
-#newOLDPEAK,
+#newSLP,
 #newCAA,
-#newTHALL,
 #newOUTPUT {
     margin: 0px;
     border: 1px solid rgb(35, 32, 24);
+    width: 4%;
     padding: 5px;
     font-size: 16px;
 }
 
+#newAge,
+#newTRTBPS,
+#newEXNG,
+#newOLDPEAK,
+#newTHALL {
+    margin: 0px;
+    border: 1px solid rgb(35, 32, 24);
+    width: 5%;
+    padding: 5px;
+    font-size: 16px;
+}
+
+#newRESTCG,
+#newTHALACHH {
+    margin: 0px;
+    border: 1px solid rgb(35, 32, 24);
+    width: 6%;
+    padding: 5px;
+    font-size: 16px;
+}
 
 .addBtn {
     padding: 9px 10px;
